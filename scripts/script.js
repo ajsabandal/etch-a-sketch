@@ -11,10 +11,10 @@ const repeatString = function (repeatTimes) {
     return x;
 }
 
-const grid = document.querySelector('gridContainer')
+const grid = document.querySelector('#gridContainer')
     function gridMaker (size) {
         for (let i=0; i <size; i++){
-            grid.style.cssText = "grid.template.columns: " + x;
+            grid.style.cssText = "grid-template.columns: " + x;
             for ( let j = 0 ; j < size; j++){
                 const square = document.createElement('div');
                 grid.appendChild(square);
@@ -23,14 +23,14 @@ const grid = document.querySelector('gridContainer')
         }
         selectColor();
         diffColor();
-        resizeBy();
+        resize();
 }
 
 const selectColor = function(){
     const square = document.querySelectorAll('.square');
     square.forEach(function(square){
         square.addEventListener("mouseover", function(e){
-            square.style.cssText = "backgroundColor: " + color;
+            square.styles.cssText = "backgroundColor: " + color;
         });
     });
 }
@@ -46,6 +46,19 @@ const diffColor = function(){
         color='blue'
         selectColor(color);
     })
+    const red = document.querySelector("#red");
+    red.addEventListener('click', ()=>{
+        color='red'
+        selectColor(color);
+    })
+}
+
+const removeGrid = function (){
+    let first = grid.firstElementChild;
+    while(first){
+        first.remove();
+        first = grid.firstElementChild;
+    }
 }
 
 const resize = function(){
@@ -53,10 +66,10 @@ const resize = function(){
     resize.addEventListener('click', ()=>{
         let sizeValue = document.querySelector('#size').value;
         removeGrid();
-        repeatString();
-        gridMaker();
+        repeatString(sizeValue);
+        gridMaker(sizeValue);
     })
 }
 
-// repeatString(16);
-// gridMaker(16);
+repeatString(16);
+gridMaker(16);
