@@ -41,8 +41,22 @@ const diffColor = function(){
         color="white",
         selectColor(color);
     })
+    const blue = document.querySelector("#blue");
+    blue.addEventListener('click', ()=>{
+        color='blue'
+        selectColor(color);
+    })
 }
 
+const resize = function(){
+    const resize = document.querySelector("#newSize");
+    resize.addEventListener('click', ()=>{
+        let sizeValue = document.querySelector('#size').value;
+        removeGrid();
+        repeatString();
+        gridMaker();
+    })
+}
 
 // repeatString(16);
 // gridMaker(16);

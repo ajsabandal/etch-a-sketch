@@ -5,7 +5,7 @@
 }
 
 button {
-    padding: 10px;
+    padding: 15px;
 }
 
 .square {
@@ -19,3 +19,8 @@ button {
     width: 500px;
     height: 500px;
 }
+
+.hover {
+    color: black;
+}
+
